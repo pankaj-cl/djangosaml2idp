@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('persistent_id', models.UUIDField(default=uuid.uuid4, verbose_name='User Persistent Id for this SP')),
                 ('created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('sp', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='djangosaml2idp.ServiceProvider')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.CharField(blank=True, max_length=24)),
             ],
             options={
                 'verbose_name': 'Persistent Id',
