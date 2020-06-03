@@ -233,6 +233,7 @@ class LoginProcessView(LoginRequiredMixin, IdPHandlerViewMixin, View):
             idp_server = IDP.load()
 
             # Parse incoming request
+            print("SAMLRequest: ", request.session['SAMLRequest'])
             req_info = idp_server.parse_authn_request(request.session['SAMLRequest'], binding)
 
             # check SAML request signature
